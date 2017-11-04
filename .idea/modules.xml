@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/mvc-xml-demo/mvc-xml-demo.iml" filepath="$PROJECT_DIR$/mvc-xml-demo/mvc-xml-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mvcannotationdemo/mvcannotationdemo.iml" filepath="$PROJECT_DIR$/mvcannotationdemo/mvcannotationdemo.iml" />
-    </modules>
-  </component>
-</project>

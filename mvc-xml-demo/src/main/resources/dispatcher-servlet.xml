@@ -11,7 +11,9 @@
     <!-- if you use annotation you must configure following setting -->
     <mvc:annotation-driven />
 
-    <context:component-scan base-package="com.twx"/>
+
+
+    <context:component-scan base-package="com.twx.controller"/>
 
     <!--************************Start Thymeleaf*************************************-->
 
@@ -20,7 +22,7 @@
           p:suffix=".html"
           p:templateMode="HTML5"
           p:characterEncoding="UTF-8"/>
-
+            <!--p:characterEncoding="UTF-8" 解决中文乱码的问题-->
     <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine"
           p:templateResolver-ref="templateResolver"
           p:messageSource-ref="messageSource" />
@@ -28,6 +30,7 @@
     <bean id="viewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver"
           p:templateEngine-ref="templateEngine"
           p:characterEncoding="UTF-8"/>
+    <!--p:characterEncoding="UTF-8" 解决中文乱码的问题-->
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
           p:basename="messages" />

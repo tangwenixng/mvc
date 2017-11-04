@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="mvc-xml-demo:war">
-    <output-path>$PROJECT_DIR$/mvc-xml-demo/target</output-path>
-    <root id="archive" name="mvc-annotation.war">
-      <element id="artifact" artifact-name="mvc-xml-demo:war exploded" />
-    </root>
-  </artifact>
-</component>

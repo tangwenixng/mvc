@@ -8,11 +8,42 @@
   <name>mvc-xml-demo Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+      <!--***************spring********************8-->
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>4.3.10.RELEASE</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>commons-logging</groupId>
+                  <artifactId>commons-logging</artifactId>
+              </exclusion>
+          </exclusions>
       </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-config</artifactId>
+          <version>4.2.0.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-web</artifactId>
+          <version>4.2.0.RELEASE</version>
+      </dependency>
+
+      <!--******************servlet*************-->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>3.1.0</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+        <!--**************thymeleaf**************-->
       <dependency>
           <groupId>org.thymeleaf</groupId>
           <artifactId>thymeleaf</artifactId>
@@ -23,12 +54,20 @@
           <artifactId>thymeleaf-spring4</artifactId>
           <version>2.1.4.RELEASE</version>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+      <!-- *****************logback************* -->
       <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>jstl</artifactId>
-          <version>1.2</version>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>1.7.21</version>
       </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.2.3</version>
+      </dependency>
+
+
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>

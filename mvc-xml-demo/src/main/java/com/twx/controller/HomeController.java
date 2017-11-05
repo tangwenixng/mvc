@@ -19,11 +19,6 @@ public class HomeController {
     private final Logger logger = LoggerFactory.getLogger(HomeController.class);
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHome(Model model) {
-        logger.trace("trace logging");
-        logger.debug("debug logging");
-        logger.info("info logging");
-        logger.warn("warning logging");
-//        logger.error("error logging", new RuntimeException("help"));
         model.addAttribute("serverTime", "11-02");
         return "home";
     }
@@ -33,5 +28,16 @@ public class HomeController {
         List<String> list = new ArrayList<>(Arrays.asList("1", "2", "3", "4"));
         model.addAttribute("myList", list);
         return "list";
+    }
+
+    @RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+    public String login() {
+        logger.info("Login....");
+        return "login";
+    }
+
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    public String getForm(Model model) {
+        return "form";
     }
 }

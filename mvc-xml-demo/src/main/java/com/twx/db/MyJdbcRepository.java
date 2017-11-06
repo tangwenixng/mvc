@@ -1,4 +1,4 @@
-package com.twx.service;
+package com.twx.db;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by twx on 2017/11/5.

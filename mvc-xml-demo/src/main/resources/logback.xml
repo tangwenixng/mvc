@@ -36,7 +36,7 @@
     </appender>
 
     <!--root节点是必选节点，用来指定最基础的日志输出级别-->
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="console" />
         <appender-ref ref="file" />
     </root>

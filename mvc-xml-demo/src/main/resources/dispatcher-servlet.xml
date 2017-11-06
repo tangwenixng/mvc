@@ -32,6 +32,7 @@
           p:characterEncoding="UTF-8"/>
     <!--p:characterEncoding="UTF-8" 解决中文乱码的问题-->
 
+    <!--classpath路径下的messages.properties-->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
           p:basename="messages" />
 

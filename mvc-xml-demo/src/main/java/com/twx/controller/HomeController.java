@@ -26,10 +26,9 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHome(Model model) {
-        SVLEntity svlEntity = myJpaRepository.findOne(1359);
-        String containerNo = svlEntity.getContainerNo();
-        System.out.println(containerNo);
-        model.addAttribute("serverTime", "11-02");
+        List<SVLEntity> list = myJpaRepository.findByContainerNo("CUBY3820");
+        System.out.println("**************************************"+list.size());
+        model.addAttribute("containerList", list);
         return "home";
     }
 

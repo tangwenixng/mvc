@@ -8,7 +8,13 @@
 <body>
     <h1>welcome to website!</h1>
 
-    Current time is <span th:text="${serverTime}" />
+    Container
+    <ul>
+        <li th:each="entity: ${containerList}">
+            <span th:text="${entity.statusCode}">List</span>
+        </li>
+    </ul>
+
     <p><span th:text="#{welcome.message}" /></p>
 
     <a th:href="@{/list}">你好</a>

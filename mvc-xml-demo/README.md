@@ -140,3 +140,80 @@
         <param-value>dev</param-value>
     </context-param>
     ```
+    
+    
+ ## Maven profile使用
+ 
+ 1. 在pom.xml中添加
+    ```xml
+    <project>
+        ...
+        ...
+        <profiles>
+            <profile>
+                <id>dev</id>
+                <properties>
+                    <profiles.active>dev</profiles.active>
+                </properties>
+                <activation>
+                    <activeByDefault>true</activeByDefault>
+                </activation>
+            </profile>
+            <profile>
+                <id>test</id>
+                <properties>
+                    <profiles.active>test</profiles.active>
+                </properties>
+            </profile>
+        </profiles>
+    
+        <build>
+              <resources>
+                  <resource>
+                      <directory>src/main/resources</directory>
+                      <includes>
+                          <include>*.xml</include>
+                          <include>log4j.properties</include>
+                          <include>${profiles.active}/*</include>
+                      </includes>
+                  </resource>
+              </resources>
+        </build>
+        ...
+        ...
+    </project>
+    ```
+    
+ 2. 当前类路径的目录结构是  
+     src/main/resources/ <br>
+      -   dev
+           - jdbc.properties
+           - SEVS.properties
+      -   test
+            -  jdbc.properties
+            - SEVS.properties
+       -  prod
+            -  jdbc.properties
+            - SEVS.properties
+       -  log4j.properties 
+       -  applicationContext.xml <br>
+       -  dispatcher-servlet.xml <br>
+         
+ 3. 执行命令 ```mvn clean package -DskipTests -Pdev```
+ 
+    -DskipTests 跳过单元测
+    
+    -Pdev 选择激活dev环境（第一步中默认激活了dev环境）
+    
+ 4. 在生成的war包中，查看classes目录下只有dev子目录，没有test prod等无关的目录。
+ 
+ 5. 这种方法需要手动更改web.xml中的spring.profiles.active
+ 
+ 
+ ## Spring和Maven Profiles的区别
+ 
+ Spring Profiles 是在运行起作用
+ 
+ Maven Profiles 是在打包时起作用，为了排除不必要的环境配置文件
+ 
+ 两者用途不一样。

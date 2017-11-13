@@ -104,4 +104,39 @@
     
     <bean class="com.twx.config.SecurityConfig"/>
     ```
+    
+ ## Spring profiles使用
  
+ 1. 新建一个profiles.xml文件
+    ```xml
+         <beans profile="dev">
+            <context:property-placeholder location="classpath:dev/jdbc.properties,classpath:dev/SEVS.properties" />
+        </beans>
+    
+        <beans profile="test">
+            <context:property-placeholder location="classpath:test/jdbc.properties,classpath:test/SEVS.properties" />
+        </beans>
+    
+        <beans profile="prod">
+            <context:property-placeholder location="classpath:prod/jdbc.properties,classpath:prod/SEVS.properties" />
+        </beans>
+    ```
+ 2. 把profiles.xml 导入到applicationContext.xml中
+    ```xml
+        <!--数据库jdbc配置文件-->
+        <import resource="classpath:profiles.xml" />
+    
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+              p:driverClassName="${jdbc.driverClassName}"
+              p:url="${jdbc.url}"
+              p:username="${jdbc.username}"
+              p:password="${jdbc.password}" />
+    ```
+    
+ 3. 在web.xml中激活
+    ```xml
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>dev</param-value>
+    </context-param>
+    ```
